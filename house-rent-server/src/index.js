@@ -2,32 +2,25 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const connectDB = require('./database/connectDB');
-const User = require('./model/User');
 const port = process.env.PORT || 3000;
 
-app.use(express.json());
-app.use(cors());
+// all api here
+const mainMiddleware = require('./middleware/middleware');
+const getAllUsers = require('../src/router/router');
+const userRegistration = require('../src/router/router');
+const userLogin = require('../src/router/router');
+const houseAdd = require('../src/router/router');
+
+// all middleware
+mainMiddleware(app);
+app.use(getAllUsers);
+app.use(userRegistration);
+app.use(userLogin);
+app.use(houseAdd);
 
 
 app.get('/api/health', (req, res) => {
     res.send('Server is good');
-})
-
-app.post('/api/registration', async (req, res) => {
-    const user = req.body;
-    const result = await User.create(user);
-    res.status(200).json(result);
-})
-
-app.post('/api/login', async (req, res) => {
-    const user = req.body;
-    console.log(user);
-    const result = await User.findOne({ $and: [{ email: user.email }, { password: user.password }] });
-    res.status(200).json(result);
-})
-
-app.get('/api/registration', async (req, res) => {
-    res.status(200).json({ message: 'user added successfully' });
 })
 
 app.all('*', (req, res, next) => {
