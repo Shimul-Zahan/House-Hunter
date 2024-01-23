@@ -46,14 +46,14 @@ const LogIn = () => {
                                                 alt="Uploaded Image"
                                                 className="mx-auto  rounded-full h-full"
                                             />
-                                            <img src="/images/imgUpload.png" className="absolute w-[20px] right-0 bottom-0 bg-white" alt="" />
+                                            <img src="" className="absolute w-[20px] right-0 bottom-0 bg-white" alt="" />
                                         </>
 
                                     ) : (
                                         <div className="mx-auto rounded-full bg-[#EEEEEE] h-full">
                                             <img
                                                 className="w-full h-full"
-                                                src="/images/imgUpload.png"
+                                                src="https://i.ibb.co/LpR33BN/male-avatar-profile-picture-vector-10210618.jpg"
                                                 alt=""
                                             />
                                         </div>
@@ -68,6 +68,31 @@ const LogIn = () => {
                                 class="input"
                                 required=""
                             />
+
+
+                            <select
+                                type="text"
+                                name="condition"
+                                id="floating_first_name"
+                                className="input text-gray-400"
+                                placeholder=" "
+                                required
+                            >
+                                <option value="" className="text-black" disabled selected>
+                                    Condition
+                                </option>
+                                <option value="Excellent" className="text-black">
+                                    Excellent
+                                </option>
+                                <option value="Good" className="text-black">
+                                    Good
+                                </option>
+                                <option value="Fair" className="text-black">
+                                    Fair
+                                </option>
+                            </select>
+
+
                             <input
                                 placeholder="Password"
                                 id="password"
