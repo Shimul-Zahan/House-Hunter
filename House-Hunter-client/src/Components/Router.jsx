@@ -6,6 +6,9 @@ import { Home } from "./Home";
 import MainLayout from "../Layout/Main/MainLayout";
 import Dashboard from "../Layout/Dashboard/Dashboard";
 import AddHouse from "./Dashboard/AddHouse";
+import ManageHouse from "./Dashboard/ManageHouse";
+import LogIn from "./Login2";
+import Registration from "./Registration";
 
 const router = createBrowserRouter([
     {
@@ -15,7 +18,15 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home />
-            }
+            },
+            {
+                path: '/login',
+                element: <LogIn />
+            },
+            {
+                path: '/register',
+                element: <Registration />
+            },
         ]
     },
     {
@@ -27,8 +38,8 @@ const router = createBrowserRouter([
                 element: <AddHouse />
             },
             {
-                path: '/dashboard',
-                element: <h1>Hello World</h1>
+                path: '/dashboard/manage-house',
+                element: <ManageHouse />
             }
         ]
     }

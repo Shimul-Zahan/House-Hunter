@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { RxCross2 } from 'react-icons/rx';
-import { Outlet } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 
 const Dashboard = () => {
 
@@ -9,8 +9,8 @@ const Dashboard = () => {
 
 
   return (
-    <div className="flex duration-700">
-      <div className="flex h-screen w-16 flex-col justify-between border-e bg-white">
+    <div className="flex">
+      <div className="flex min-h-screen w-16 flex-col justify-between border-e bg-white">
         <div>
           <div className="inline-flex h-16 w-16 items-center justify-center">
             <span onClick={() => setOpen(!open)}
@@ -113,62 +113,6 @@ const Dashboard = () => {
                     </span>
                   </a>
                 </li>
-
-                <li>
-                  <a
-                    href=""
-                    className="group relative flex justify-center rounded px-2 py-1.5 text-gray-500 hover:bg-gray-50 hover:text-gray-700"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-5 w-5 opacity-75"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"
-                      />
-                    </svg>
-
-                    <span
-                      className="absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded bg-gray-900 px-2 py-1.5 text-xs font-medium text-white invisible group-hover:visible"
-                    >
-                      Invoices
-                    </span>
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    href=""
-                    className="group relative flex justify-center rounded px-2 py-1.5 text-gray-500 hover:bg-gray-50 hover:text-gray-700"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-5 w-5 opacity-75"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                      />
-                    </svg>
-
-                    <span
-                      className="absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded bg-gray-900 px-2 py-1.5 text-xs font-medium text-white invisible group-hover:visible"
-                    >
-                      Account
-                    </span>
-                  </a>
-                </li>
               </ul>
             </div>
           </div>
@@ -205,141 +149,35 @@ const Dashboard = () => {
         </div>
       </div>
 
-      <div className={`${open ? 'hidden' : 'flex-1'} flex h-screen flex-col justify-between border-e bg-white`}>
+      <div className={`${open ? 'w-0' : 'w-64'} hidden lg:flex flex-1 duration-700 h-screen flex-col justify-between border-e bg-white`}>
         <div className="px-4 py-6">
-          <ul className="mt-14 space-y-1">
+          <h1 className='text-xl font-mono font-bold'>Home Hunter</h1>
+          <ul className="mt-14 space-y-3">
             <li>
-              <a
-                href=""
+              <Link
+                to="/dashboard/add-house"
                 className="block rounded-lg bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700"
               >
                 General
-              </a>
+              </Link>
             </li>
 
             <li>
-              <details className="group [&_summary::-webkit-details-marker]:hidden">
-                <summary
-                  className="flex cursor-pointer items-center justify-between rounded-lg px-4 py-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700"
-                >
-                  <span className="text-sm font-medium"> Teams </span>
-
-                  <span className="shrink-0 transition duration-300 group-open:-rotate-180">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-5 w-5"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  </span>
-                </summary>
-
-                <ul className="mt-2 space-y-1 px-4">
-                  <li>
-                    <a
-                      href=""
-                      className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
-                    >
-                      Banned Users
-                    </a>
-                  </li>
-
-                  <li>
-                    <a
-                      href=""
-                      className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
-                    >
-                      Calendar
-                    </a>
-                  </li>
-                </ul>
-              </details>
-            </li>
-
-            <li>
-              <a
-                href=""
+              <Link
+                to="/dashboard/manage-house"
                 className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
               >
                 Billing
-              </a>
-            </li>
-
-            <li>
-              <a
-                href=""
-                className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
-              >
-                Invoices
-              </a>
-            </li>
-
-            <li>
-              <details className="group [&_summary::-webkit-details-marker]:hidden">
-                <summary
-                  className="flex cursor-pointer items-center justify-between rounded-lg px-4 py-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700"
-                >
-                  <span className="text-sm font-medium"> Account </span>
-
-                  <span className="shrink-0 transition duration-300 group-open:-rotate-180">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-5 w-5"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  </span>
-                </summary>
-
-                <ul className="mt-2 space-y-1 px-4">
-                  <li>
-                    <a
-                      href=""
-                      className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
-                    >
-                      Details
-                    </a>
-                  </li>
-
-                  <li>
-                    <a
-                      href=""
-                      className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
-                    >
-                      Security
-                    </a>
-                  </li>
-
-                  <li>
-                    <form action="/logout">
-                      <button
-                        type="submit"
-                        className="w-full rounded-lg px-4 py-2 text-sm font-medium text-gray-500 [text-align:_inherit] hover:bg-gray-100 hover:text-gray-700"
-                      >
-                        Logout
-                      </button>
-                    </form>
-                  </li>
-                </ul>
-              </details>
+              </Link>
             </li>
           </ul>
         </div>
       </div>
 
-      <div className={`${open ? 'w-full' : 'w-[81%] duration-700'} bg-red-500`}>
+      <div className={`${open ? 'w-full' : 'lg:w-[81%] duration-700'} w-full bg-gray-100`}>
+        <div className=''>
+          <h1 className='text-center bg-gray-700 py-4 font-bold text-white font-mono text-2xl'>Hello Developers</h1>
+        </div>
         <Outlet />
       </div>
     </div>

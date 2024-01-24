@@ -19,22 +19,15 @@ const Navbar = () => {
             navMenu: 'home',
             link: '/'
         },
-        {
-            navMenu: 'about',
-            link: '/about'
-        },
-        {
-            navMenu: 'contact',
-            link: '/contact'
-        },
+        
         {
             navMenu: 'dashboard',
-            link: '/dashboard/profile'
+            link: '/dashboard/add-house'
         },
     ]
 
     return (
-        <div className='lg:px-10 w-full py-4 fixed bg-transparent mx-auto text-white'>
+        <div className='lg:px-10 w-full py-4 fixed bg-black mx-auto text-white'>
             <div className='block lg:w-5/6 mx-auto space-y-3 relative'>
                 <div className='hidden lg:flex justify-between items-center'>
                     <div className='block lg:flex justify-center items-center gap-5'>
@@ -49,8 +42,8 @@ const Navbar = () => {
                     </div>
                     <div className='list-none lg:flex justify-center items-center gap-10'>
                         <div className='bg-[#8046fd] rounded-full'>
-                            <button onClick={handleLogOut} className='px-6 py-1 rounded-full bg-red-500'>Register</button>
-                            <button onClick={handleLogOut} className='px-6 py-1 rounded-full'>Login</button>
+                            <Link to="/register"  className='px-6 py-1 rounded-full bg-red-500'>Register</Link>
+                            <Link to="/login" className='px-6 py-1 rounded-full'>Login</Link>
                         </div>
                     </div>
                 </div>
@@ -80,8 +73,6 @@ const Navbar = () => {
                         
                     </div>
                 </div>
-
-                {/* mobile part */}
                 
                 <div className={`absolute px-4 lg:hidden duration-700 top-10 list-none space-y-5 w-full py-6 ${showMenu ? 'left-5' : 'left-[-120%]'}`}>
                     {
@@ -92,8 +83,8 @@ const Navbar = () => {
                         )
                     }
                     <div className='rounded-full w-[50%] flex justify-start items-center gap-5'>
-                        <button onClick={handleLogOut} className='rounded-full underline'>Register</button>
-                        <button onClick={handleLogOut} className='rounded-full underline'>Login</button>
+                        <Link to="/register" className='rounded-full underline'>Register</Link>
+                        <Link to="/login" className='rounded-full underline'>Login</Link>
                     </div>
                     <div className='lg:hidden flex-col flex justify-start items-start gap-5'>
                         <div className='flex justify-start items-center gap-2'>
